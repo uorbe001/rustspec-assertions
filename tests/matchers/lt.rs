@@ -33,3 +33,8 @@ fn not_be_lt_int_equal_test() {
 fn not_be_lt_int_equal_test_fail() {
     expect(1i).not_to(be_lt!(2i));
 }
+
+#[test]
+fn lt_f64_test() {
+    expect(1f64).to(be_lt!(1.1f64));
+}

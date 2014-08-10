@@ -33,3 +33,9 @@ fn not_be_gt_int_equal_test() {
 fn not_be_gt_int_equal_test_fail() {
     expect(2i).not_to(be_gt!(1i));
 }
+
+#[test]
+fn gt_f64_test() {
+    expect(1.2f64).to(be_gt!(1f64));
+}
+

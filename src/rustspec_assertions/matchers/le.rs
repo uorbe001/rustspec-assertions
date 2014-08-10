@@ -8,7 +8,7 @@ pub struct Le<T> {
     file_line: (&'static str, uint)
 }
 
-impl<T: Ord + Show> Matcher<T> for Le<T> {
+impl<T: PartialOrd + Show> Matcher<T> for Le<T> {
     fn assert_check(&self, expected: T) -> bool {
         expected <= self.value
     }
@@ -26,7 +26,7 @@ impl<T: Ord + Show> Matcher<T> for Le<T> {
     }
 }
 
-pub fn be_le<T: Ord + Show>(value: T, file_line: (&'static str, uint)) -> Box<Le<T>> {
+pub fn be_le<T: PartialOrd + Show>(value: T, file_line: (&'static str, uint)) -> Box<Le<T>> {
     box Le { value: value, file_line: file_line }
 }
 

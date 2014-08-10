@@ -8,7 +8,7 @@ pub struct Lt<T> {
     file_line: (&'static str, uint)
 }
 
-impl<T: Ord + Show> Matcher<T> for Lt<T> {
+impl<T: PartialOrd + Show> Matcher<T> for Lt<T> {
     fn assert_check(&self, expected: T) -> bool {
         expected < self.value
     }
@@ -26,7 +26,7 @@ impl<T: Ord + Show> Matcher<T> for Lt<T> {
     }
 }
 
-pub fn be_lt<T: Ord + Show>(value: T, file_line: (&'static str, uint)) -> Box<Lt<T>> {
+pub fn be_lt<T: PartialOrd + Show>(value: T, file_line: (&'static str, uint)) -> Box<Lt<T>> {
     box Lt { value: value, file_line: file_line }
 }
 

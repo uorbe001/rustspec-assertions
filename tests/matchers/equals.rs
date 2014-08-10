@@ -22,3 +22,9 @@ fn not_eq_int_test() {
 fn not_eq_int_test_fail() {
     expect(5i).not_to(eq!(5i));
 }
+
+#[test]
+fn eq_f64_test() {
+    expect(1f64).to(eq!(1f64));
+}
+

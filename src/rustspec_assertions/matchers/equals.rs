@@ -8,7 +8,7 @@ pub struct Equals<T> {
     file_line: (&'static str, uint)
 }
 
-impl<T: Eq + Show> Matcher<T> for Equals<T> {
+impl<T: PartialEq + Show> Matcher<T> for Equals<T> {
     fn assert_check(&self, expected: T) -> bool {
         expected == self.value
     }
@@ -26,7 +26,7 @@ impl<T: Eq + Show> Matcher<T> for Equals<T> {
     }
 }
 
-pub fn eq<T: Eq + Show>(value: T, file_line: (&'static str, uint)) -> Box<Equals<T>> {
+pub fn eq<T: PartialEq + Show>(value: T, file_line: (&'static str, uint)) -> Box<Equals<T>> {
     box Equals { value: value, file_line: file_line }
 }
 
