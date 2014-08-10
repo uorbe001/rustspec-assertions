@@ -4,7 +4,8 @@ use self::core::fmt::Show;
 use matchers::matcher::Matcher;
 
 pub struct Le<T> {
-    value: T
+    value: T,
+    file_line: (&'static str, uint)
 }
 
 impl<T: Ord + Show> Matcher<T> for Le<T> {
@@ -19,8 +20,19 @@ impl<T: Ord + Show> Matcher<T> for Le<T> {
     fn negated_msg(&self, expected: T) -> String {
         format!("Expected {} NOT to be less or equal to {} but it was.", self.value, expected)
     }
+
+    fn get_file_line(&self) -> (&'static str, uint) {
+        self.file_line
+    }
 }
 
-pub fn be_le<T: Ord + Show>(value: T) -> Box<Le<T>> {
-    box Le { value: value }
+pub fn be_le<T: Ord + Show>(value: T, file_line: (&'static str, uint)) -> Box<Le<T>> {
+    box Le { value: value, file_line: file_line }
 }
+
+#[macro_export]
+pub macro_rules! be_le(
+    ($value:expr) => (
+        be_le($value, (file!(), line!()))
+    );
+)

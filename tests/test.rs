@@ -4,6 +4,6 @@ mod matchers {
     mod equals;
     mod gt;
     mod ge;
-    // mod lt;
-    // mod le;
+    mod lt;
+    mod le;
 }
