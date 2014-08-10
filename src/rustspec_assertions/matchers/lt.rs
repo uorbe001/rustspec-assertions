@@ -1,4 +1,3 @@
-
 extern crate core;
 
 use self::core::fmt::Show;

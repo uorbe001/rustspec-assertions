@@ -9,6 +9,8 @@ pub use matchers::ge::be_ge;
 pub use be_greater_or_equal_to = matchers::ge::be_ge;
 pub use matchers::lt::be_lt;
 pub use be_less_than = matchers::lt::be_lt;
+pub use matchers::le::be_le;
+pub use be_less_or_equal_to = matchers::le::be_le;
 pub use expect::expect;
 
 pub mod expect;
@@ -17,5 +19,6 @@ mod matchers {
     pub mod gt;
     pub mod ge;
     pub mod lt;
+    pub mod le;
     pub mod matcher;
 }
