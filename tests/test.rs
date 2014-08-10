@@ -2,8 +2,8 @@
 
 mod matchers {
     mod equals;
-    // mod gt;
-    // mod ge;
+    mod gt;
+    mod ge;
     // mod lt;
     // mod le;
 }
