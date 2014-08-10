@@ -1,3 +1,4 @@
+#![macro_escape]
 extern crate core;
 
 use self::core::fmt::Show;
@@ -35,7 +36,7 @@ impl<T: Show + Clone> Expect<T> {
             msg = other.msg(self.value.clone());
         }
 
-        fail!(msg);
+        ::std::rt::begin_unwind(msg, &other.get_file_line());
     }
 }
 
