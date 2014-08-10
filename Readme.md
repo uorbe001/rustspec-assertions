@@ -16,18 +16,24 @@ git = "https://github.com/uorbe001/rustspec-assertions.git"
 Now you should be able to use these assertions in your tests by 'using' them:
 
 ```
-extern crate rustspec_assertions;
-use self::rustspec_assertions::{expect, be_le, be_less_or_equal_to, eq, equal, be_lt, be_gt, be_ge};
+#[phase(plugin, link)] extern crate rustspec_assertions;
+use self::rustspec_assertions::{expect, be_le, eq, be_lt, be_gt, be_ge};
 
 #[test]
 fn be_le_int_test() {
-    expect(1i).to(be_le(2i));
+    expect(1i).to(be_le!(2i));
 }
 
 #[test]
-fn be_le_f64_test() {
-    expect(1.1f64).to(be_le(1.1f64));
+fn eq_f64_test() {
+    expect(1.1f64).to(eq!(1.1f64));
 }
+```
+
+The crate relies on macros to be able to report better errors, so you'll need to add this to your test.rs, lib.rs or main.rs file:
+
+```
+#![feature(phase)]
 ```
 
 For a complete list of matchers and more examples, please check the [tests](tests/).
