@@ -40,6 +40,6 @@ impl<T: Show + Clone> Expect<T> {
     }
 }
 
-pub fn expect<T: PartialEq + PartialOrd + Show>(value: T) -> Expect<T> {
+pub fn expect<T: Show>(value: T) -> Expect<T> {
     Expect { value: value, negated: false }
 }
