@@ -33,6 +33,6 @@ pub fn eq<T: PartialEq + Show>(value: T, file_line: (&'static str, uint)) -> Box
 #[macro_export]
 pub macro_rules! eq(
     ($value:expr) => (
-        eq($value, (file!(), line!()))
+        eq($value, (file!(), expand_line!()))
     );
 )

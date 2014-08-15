@@ -33,6 +33,6 @@ pub fn be_gt<T: PartialOrd + Show>(value: T, file_line: (&'static str, uint)) ->
 #[macro_export]
 pub macro_rules! be_gt(
     ($value:expr) => (
-        be_gt($value, (file!(), line!()))
+        be_gt($value, (file!(), expand_line!()))
     );
 )

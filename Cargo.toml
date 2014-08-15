@@ -7,3 +7,4 @@ authors = ["Unai Orbe <unai@orbe.me>"]
 [[lib]]
 name = "rustspec_assertions"
 path = "src/rustspec_assertions/lib.rs"
+crate_type = ["dylib"]
