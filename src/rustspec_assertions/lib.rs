@@ -21,6 +21,8 @@ pub use matchers::be_true::BeTrue;
 pub use matchers::be_true::be_true;
 pub use matchers::be_false::BeFalse;
 pub use matchers::be_false::be_false;
+pub use matchers::be_some::BeSome;
+pub use matchers::be_some::be_some;
 pub use expect::expect;
 
 // use syntax::ext::base;
@@ -65,5 +67,6 @@ mod matchers {
     pub mod contain;
     pub mod be_true;
     pub mod be_false;
+    pub mod be_some;
     pub mod matcher;
 }

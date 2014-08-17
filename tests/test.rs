@@ -9,4 +9,5 @@ mod matchers {
     mod contain;
     mod be_true;
     mod be_false;
+    mod be_some;
 }
