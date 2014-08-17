@@ -10,4 +10,5 @@ mod matchers {
     mod be_true;
     mod be_false;
     mod be_some;
+    mod be_none;
 }
