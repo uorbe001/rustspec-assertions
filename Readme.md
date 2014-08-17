@@ -1,4 +1,4 @@
-# Rustspec-assertions
+# Rustspec-assertions ![build status](https://travis-ci.org/uorbe001/rustspec-assertions.svg?branch=master)
 
 This is an attempt to port a syntax similar to rspec to rust.
 
