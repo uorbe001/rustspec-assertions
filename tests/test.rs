@@ -7,4 +7,5 @@ mod matchers {
     mod lt;
     mod le;
     mod contain;
+    mod be_true;
 }

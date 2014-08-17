@@ -17,6 +17,8 @@ pub use matchers::le::Le;
 pub use matchers::le::be_le;
 pub use matchers::contain::Contain;
 pub use matchers::contain::contain;
+pub use matchers::be_true::BeTrue;
+pub use matchers::be_true::be_true;
 pub use expect::expect;
 
 // use syntax::ext::base;
@@ -59,5 +61,6 @@ mod matchers {
     pub mod lt;
     pub mod le;
     pub mod contain;
+    pub mod be_true;
     pub mod matcher;
 }
