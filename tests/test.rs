@@ -6,4 +6,5 @@ mod matchers {
     mod ge;
     mod lt;
     mod le;
+    mod contain;
 }
