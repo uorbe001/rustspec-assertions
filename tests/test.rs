@@ -1,5 +1,7 @@
 #![feature(phase)]
 
+#[phase(plugin, link)] extern crate rustspec_assertions;
+
 mod matchers {
     mod equals;
     mod gt;

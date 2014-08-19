@@ -1,4 +1,4 @@
-#[phase(plugin, link)] extern crate rustspec_assertions;
+extern crate rustspec_assertions;
 use self::rustspec_assertions::{expect, eq};
 
 #[test]
