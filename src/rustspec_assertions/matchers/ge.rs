@@ -14,11 +14,11 @@ impl<T: PartialOrd + Show> Matcher<T> for Ge<T> {
     }
 
     fn msg(&self, expected: T) -> String {
-        format!("Expected {} to be greater or equal to {} but it was not.", self.value, expected)
+        format!("Expected {} to be greater or equal to {} but it was not.", expected, self.value)
     }
 
     fn negated_msg(&self, expected: T) -> String {
-        format!("Expected {} NOT to be greater or equal to {} but it was.", self.value, expected)
+        format!("Expected {} NOT to be greater or equal to {} but it was.", expected, self.value)
     }
 
     fn get_file_line(&self) -> (&'static str, uint) {

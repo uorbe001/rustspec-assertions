@@ -14,11 +14,11 @@ impl<T: PartialEq + Show> Matcher<T> for Equals<T> {
     }
 
     fn msg(&self, expected: T) -> String {
-        format!("Expected {} to equal {} but it did not.", self.value, expected)
+        format!("Expected {} to equal {} but it did not.", expected, self.value)
     }
 
     fn negated_msg(&self, expected: T) -> String {
-        format!("Expected {} NOT to equal {} but it did.", self.value, expected)
+        format!("Expected {} NOT to equal {} but it did.", expected, self.value)
     }
 
     fn get_file_line(&self) -> (&'static str, uint) {
