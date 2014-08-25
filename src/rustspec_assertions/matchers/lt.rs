@@ -33,6 +33,6 @@ pub fn be_lt<T: PartialOrd + Show>(value: T, file_line: (&'static str, uint)) ->
 #[macro_export]
 pub macro_rules! be_lt(
     ($value:expr) => (
-        be_lt($value, (file!(), expand_line!()))
+        be_lt($value.clone(), (file!(), expand_line!()))
     );
 )

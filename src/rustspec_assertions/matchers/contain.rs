@@ -33,6 +33,6 @@ pub fn contain<T: Show + PartialEq>(value: T, file_line: (&'static str, uint)) -
 #[macro_export]
 pub macro_rules! contain(
     ($value:expr) => (
-        contain($value, (file!(), expand_line!()))
+        contain($value.clone(), (file!(), expand_line!()))
     );
 )
