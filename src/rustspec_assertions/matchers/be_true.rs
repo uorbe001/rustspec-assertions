@@ -1,6 +1,5 @@
 extern crate core;
 
-use self::core::fmt::Show;
 use matchers::matcher::Matcher;
 
 pub struct BeTrue {
