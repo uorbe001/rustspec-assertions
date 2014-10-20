@@ -4,7 +4,7 @@ name = "rustspec_assertions"
 version = "0.1.0"
 authors = ["Unai Orbe <unai@orbe.me>"]
 
-[[lib]]
+[lib]
 name = "rustspec_assertions"
-path = "src/rustspec_assertions/lib.rs"
+path = "src/lib.rs"
 crate_type = ["dylib"]
