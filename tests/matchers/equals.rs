@@ -28,3 +28,8 @@ fn eq_f64_test() {
     expect(&1f64).to(eq!(1f64));
 }
 
+#[test]
+fn eq_uint_test() {
+    expect(&1u).to(eq!(1u));
+}
+
