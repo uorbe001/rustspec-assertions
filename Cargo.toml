@@ -3,6 +3,10 @@
 name = "rustspec_assertions"
 version = "0.1.0"
 authors = ["Unai Orbe <unai@orbe.me>"]
+
+homepage = "https://github.com/uorbe001/rustspec-assertions"
+repository = "https://github.com/uorbe001/rustspec-assertions"
+readme = "Readme.md"
 description = "BDD style assertion library"
 keywords = ["testing", "bdd", "expect", "assertions"]
 license = "MIT"
