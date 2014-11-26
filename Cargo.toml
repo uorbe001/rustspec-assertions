@@ -1,7 +1,7 @@
 [package]
 
 name = "rustspec_assertions"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Unai Orbe <unai@orbe.me>"]
 
 homepage = "https://github.com/uorbe001/rustspec-assertions"
