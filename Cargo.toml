@@ -3,6 +3,9 @@
 name = "rustspec_assertions"
 version = "0.1.0"
 authors = ["Unai Orbe <unai@orbe.me>"]
+description = "BDD style assertion library"
+keywords = ["testing", "bdd", "expect", "assertions"]
+license = "MIT"
 
 [lib]
 name = "rustspec_assertions"
