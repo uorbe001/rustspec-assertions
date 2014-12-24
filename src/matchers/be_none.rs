@@ -34,4 +34,4 @@ pub macro_rules! be_none(
     () => (
         be_none((file!(), expand_line!()))
     );
-)
+);

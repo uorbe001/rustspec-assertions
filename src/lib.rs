@@ -56,7 +56,7 @@ pub macro_rules! expand_line(
     () => (
         line!()
     );
-)
+);
 
 
 pub mod expect;

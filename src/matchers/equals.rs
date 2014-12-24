@@ -35,4 +35,4 @@ pub macro_rules! eq(
     ($value:expr) => (
         eq($value.clone(), (file!(), expand_line!()))
     );
-)
+);

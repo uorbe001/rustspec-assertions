@@ -34,4 +34,4 @@ pub macro_rules! be_some(
     () => (
         be_some((file!(), expand_line!()))
     );
-)
+);

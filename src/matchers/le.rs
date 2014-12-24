@@ -35,4 +35,4 @@ pub macro_rules! be_le(
     ($value:expr) => (
         be_le($value.clone(), (file!(), expand_line!()))
     );
-)
+);

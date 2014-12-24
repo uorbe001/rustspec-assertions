@@ -35,4 +35,4 @@ pub macro_rules! contain(
     ($value:expr) => (
         contain($value.clone(), (file!(), expand_line!()))
     );
-)
+);
