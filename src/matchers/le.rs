@@ -3,6 +3,7 @@ extern crate core;
 use self::core::fmt::Show;
 use matchers::matcher::Matcher;
 
+#[deriving(Copy)]
 pub struct Le<T> {
     value: T,
     file_line: (&'static str, uint)

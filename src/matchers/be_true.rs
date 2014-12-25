@@ -2,6 +2,7 @@ extern crate core;
 
 use matchers::matcher::Matcher;
 
+#[deriving(Copy)]
 pub struct BeTrue {
     file_line: (&'static str, uint)
 }
