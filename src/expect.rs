@@ -1,4 +1,4 @@
-#![macro_escape]
+#![macro_use]
 extern crate core;
 
 use self::core::fmt::Show;

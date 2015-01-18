@@ -1,6 +1,6 @@
 #![crate_name="rustspec_assertions"]
 #![crate_type="dylib"]
-#![feature(macro_rules, plugin_registrar)]
+#![feature(plugin_registrar)]
 
 extern crate syntax;
 extern crate rustc;
@@ -48,7 +48,7 @@ pub use expect::expect;
 
 //     let loc = cx.codemap().lookup_char_pos(topmost.call_site.lo);
 
-//     base::MacExpr::new(cx.expr_uint(topmost.call_site, loc.line))
+//     base::MacExpr::new(cx.expr_usize(topmost.call_site, loc.line))
 // }
 
 #[macro_export]

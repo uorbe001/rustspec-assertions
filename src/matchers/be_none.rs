@@ -1,11 +1,9 @@
 extern crate core;
-
 use self::core::fmt::Show;
 use matchers::matcher::Matcher;
 
-#[deriving(Copy)]
 pub struct BeNone {
-    file_line: (&'static str, uint)
+    file_line: (&'static str, usize)
 }
 
 impl <T: Show> Matcher<Option<T>> for BeNone {
@@ -14,20 +12,20 @@ impl <T: Show> Matcher<Option<T>> for BeNone {
     }
 
     fn msg(&self, expected: Option<T>) -> String {
-        format!("Expected {} to be none but it was not.", expected)
+        format!("Expected {:?} to be none but it was not.", expected)
     }
 
     fn negated_msg(&self, expected: Option<T>) -> String {
-        format!("Expected {} NOT to be none but it was.", expected)
+        format!("Expected {:?} NOT to be none but it was.", expected)
     }
 
-    fn get_file_line(&self) -> (&'static str, uint) {
+    fn get_file_line(&self) -> (&'static str, usize) {
         self.file_line
     }
 }
 
-pub fn be_none(file_line: (&'static str, uint)) -> Box<BeNone> {
-    box BeNone { file_line: file_line }
+pub fn be_none(file_line: (&'static str, usize)) -> Box<BeNone> {
+    Box::new(BeNone { file_line: file_line })
 }
 
 #[macro_export]

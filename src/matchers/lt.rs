@@ -3,10 +3,9 @@ extern crate core;
 use self::core::fmt::Show;
 use matchers::matcher::Matcher;
 
-#[deriving(Copy)]
 pub struct Lt<T> {
     value: T,
-    file_line: (&'static str, uint)
+    file_line: (&'static str, usize)
 }
 
 impl<T: PartialOrd + Show> Matcher<T> for Lt<T> {
@@ -15,20 +14,20 @@ impl<T: PartialOrd + Show> Matcher<T> for Lt<T> {
     }
 
     fn msg(&self, expected: T) -> String {
-        format!("Expected {} to be less than {} but it was not.", expected, self.value)
+        format!("Expected {:?} to be less than {:?} but it was not.", expected, self.value)
     }
 
     fn negated_msg(&self, expected: T) -> String {
-        format!("Expected {} NOT to be less than {} but it was.", expected, self.value)
+        format!("Expected {:?} NOT to be less than {:?} but it was.", expected, self.value)
     }
 
-    fn get_file_line(&self) -> (&'static str, uint) {
+    fn get_file_line(&self) -> (&'static str, usize) {
         self.file_line
     }
 }
 
-pub fn be_lt<T: PartialOrd + Show>(value: T, file_line: (&'static str, uint)) -> Box<Lt<T>> {
-    box Lt { value: value, file_line: file_line }
+pub fn be_lt<T: PartialOrd + Show>(value: T, file_line: (&'static str, usize)) -> Box<Lt<T>> {
+    Box::new(Lt { value: value, file_line: file_line })
 }
 
 #[macro_export]

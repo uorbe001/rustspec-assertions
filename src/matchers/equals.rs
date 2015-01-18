@@ -3,10 +3,9 @@ extern crate core;
 use self::core::fmt::Show;
 use matchers::matcher::Matcher;
 
-#[deriving(Copy)]
 pub struct Equals<T> {
     value: T,
-    file_line: (&'static str, uint)
+    file_line: (&'static str, usize)
 }
 
 impl<T: PartialEq + Show> Matcher<T> for Equals<T> {
@@ -15,20 +14,20 @@ impl<T: PartialEq + Show> Matcher<T> for Equals<T> {
     }
 
     fn msg(&self, expected: T) -> String {
-        format!("Expected {} to equal {} but it did not.", expected, self.value)
+        format!("Expected {:?} to equal {:?} but it did not.", expected, self.value)
     }
 
     fn negated_msg(&self, expected: T) -> String {
-        format!("Expected {} NOT to equal {} but it did.", expected, self.value)
+        format!("Expected {:?} NOT to equal {:?} but it did.", expected, self.value)
     }
 
-    fn get_file_line(&self) -> (&'static str, uint) {
+    fn get_file_line(&self) -> (&'static str, usize) {
         self.file_line
     }
 }
 
-pub fn eq<T: PartialEq + Show>(value: T, file_line: (&'static str, uint)) -> Box<Equals<T>> {
-    box Equals { value: value, file_line: file_line }
+pub fn eq<T: PartialEq + Show>(value: T, file_line: (&'static str, usize)) -> Box<Equals<T>> {
+    Box::new(Equals { value: value, file_line: file_line })
 }
 
 #[macro_export]

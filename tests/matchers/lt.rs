@@ -3,35 +3,35 @@ use self::rustspec_assertions::{expect, be_lt};
 
 #[test]
 fn be_lt_int_test() {
-    expect(&1i).to(be_lt!(2i));
+    expect(&1is).to(be_lt!(2is));
 }
 
 #[test]
 #[should_fail]
 fn be_lt_int_equal_test_fail() {
-    expect(&1i).to(be_lt!(1i));
+    expect(&1is).to(be_lt!(1is));
 }
 
 #[test]
 #[should_fail]
 fn be_lt_int_test_fail() {
-    expect(&2i).to(be_lt!(1i));
+    expect(&2is).to(be_lt!(1is));
 }
 
 #[test]
 fn not_be_lt_int_test() {
-    expect(&2i).not_to(be_lt!(1i));
+    expect(&2is).not_to(be_lt!(1is));
 }
 
 #[test]
 fn not_be_lt_int_equal_test() {
-    expect(&1i).not_to(be_lt!(1i));
+    expect(&1is).not_to(be_lt!(1is));
 }
 
 #[test]
 #[should_fail]
 fn not_be_lt_int_equal_test_fail() {
-    expect(&1i).not_to(be_lt!(2i));
+    expect(&1is).not_to(be_lt!(2is));
 }
 
 #[test]

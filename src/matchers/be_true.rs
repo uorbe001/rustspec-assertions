@@ -2,9 +2,8 @@ extern crate core;
 
 use matchers::matcher::Matcher;
 
-#[deriving(Copy)]
 pub struct BeTrue {
-    file_line: (&'static str, uint)
+    file_line: (&'static str, usize)
 }
 
 impl Matcher<bool> for BeTrue {
@@ -13,20 +12,20 @@ impl Matcher<bool> for BeTrue {
     }
 
     fn msg(&self, expected: bool) -> String {
-        format!("Expected {} to be true but it was not.", expected)
+        format!("Expected {:?} to be true but it was not.", expected)
     }
 
     fn negated_msg(&self, expected: bool) -> String {
-        format!("Expected {} NOT to be true but it was.", expected)
+        format!("Expected {:?} NOT to be true but it was.", expected)
     }
 
-    fn get_file_line(&self) -> (&'static str, uint) {
+    fn get_file_line(&self) -> (&'static str, usize) {
         self.file_line
     }
 }
 
-pub fn be_true(file_line: (&'static str, uint)) -> Box<BeTrue> {
-    box BeTrue { file_line: file_line }
+pub fn be_true(file_line: (&'static str, usize)) -> Box<BeTrue> {
+    Box::new(BeTrue { file_line: file_line })
 }
 
 #[macro_export]

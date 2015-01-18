@@ -1,6 +1,4 @@
-#![feature(phase)]
-
-#[phase(plugin, link)] extern crate rustspec_assertions;
+#[macro_use] extern crate rustspec_assertions;
 
 mod matchers {
     mod equals;
