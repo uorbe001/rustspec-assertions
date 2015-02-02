@@ -1,22 +1,21 @@
-extern crate core;
-
 use matchers::matcher::Matcher;
 
+#[derive(Copy)]
 pub struct BeFalse {
     file_line: (&'static str, usize)
 }
 
 impl Matcher<bool> for BeFalse {
-    fn assert_check(&self, expected: bool) -> bool {
+    #[allow(unused_variables)] fn assert_check(&self, expected: bool) -> bool {
         expected == false
     }
 
-    fn msg(&self, expected: bool) -> String {
-        format!("Expected {:?} to be false but it was not.", expected)
+    #[allow(unused_variables)] fn msg(&self, expected: bool) -> String {
+        format!("Expected {} to be false but it was not.", stringify!(expected))
     }
 
-    fn negated_msg(&self, expected: bool) -> String {
-        format!("Expected {:?} NOT to be false but it was.", expected)
+    #[allow(unused_variables)] fn negated_msg(&self, expected: bool) -> String {
+        format!("Expected {} NOT to be false but it was.", stringify!(expected))
     }
 
     fn get_file_line(&self) -> (&'static str, usize) {

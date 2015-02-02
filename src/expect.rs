@@ -1,15 +1,11 @@
-#![macro_use]
-extern crate core;
-
-use self::core::fmt::Show;
-use matchers::matcher::Matcher;
+#![macro_use] use matchers::matcher::Matcher;
 
 pub struct Expect<T> {
     value: T,
     negated: bool
 }
 
-impl<T: Show + Clone> Expect<T> {
+impl<T: Clone> Expect<T> {
     pub fn to(&self, other: Box<Matcher<T>>) {
         let mut cond = !other.assert_check(self.value.clone());
 
@@ -40,6 +36,6 @@ impl<T: Show + Clone> Expect<T> {
     }
 }
 
-pub fn expect<T: Show + Clone>(value: &T) -> Expect<T> {
+pub fn expect<T: Clone>(value: &T) -> Expect<T> {
     Expect { value: value.clone(), negated: false }
 }

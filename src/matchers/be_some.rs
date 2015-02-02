@@ -1,23 +1,21 @@
-extern crate core;
-
-use self::core::fmt::Show;
 use matchers::matcher::Matcher;
 
+#[derive(Copy)]
 pub struct BeSome {
     file_line: (&'static str, usize)
 }
 
-impl <T: Show> Matcher<Option<T>> for BeSome {
-    fn assert_check(&self, expected: Option<T>) -> bool {
+impl <T> Matcher<Option<T>> for BeSome {
+    #[allow(unused_variables)] fn assert_check(&self, expected: Option<T>) -> bool {
         expected.is_some()
     }
 
-    fn msg(&self, expected: Option<T>) -> String {
-        format!("Expected {:?} to be some but it was not.", expected)
+    #[allow(unused_variables)] fn msg(&self, expected: Option<T>) -> String {
+        format!("Expected {} to be some but it was not.", stringify!(expected))
     }
 
-    fn negated_msg(&self, expected: Option<T>) -> String {
-        format!("Expected {:?} NOT to be some but it was.", expected)
+    #[allow(unused_variables)] fn negated_msg(&self, expected: Option<T>) -> String {
+        format!("Expected {} NOT to be some but it was.", stringify!(expected))
     }
 
     fn get_file_line(&self) -> (&'static str, usize) {

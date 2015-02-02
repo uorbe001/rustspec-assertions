@@ -1,24 +1,21 @@
-extern crate core;
-
-use self::core::fmt::Show;
 use matchers::matcher::Matcher;
 
-pub struct Contain<T> {
+pub struct Contain<T: PartialEq> {
     value: T,
     file_line: (&'static str, usize)
 }
 
-impl <T: Show + PartialEq> Matcher<Vec<T>> for Contain<T> {
+impl <T: PartialEq> Matcher<Vec<T>> for Contain<T> {
     fn assert_check(&self, expected: Vec<T>) -> bool {
         expected.contains(&self.value)
     }
 
-    fn msg(&self, expected: Vec<T>) -> String {
-        format!("Expected {:?} to contain {:?} but it did not.", expected, self.value)
+    #[allow(unused_variables)] fn msg(&self, expected: Vec<T>) -> String {
+        format!("Expected {} to contain {} but it did not.", stringify!(expected), stringify!(self.value))
     }
 
-    fn negated_msg(&self, expected: Vec<T>) -> String {
-        format!("Expected {:?} NOT to contain {:?} but it did.", expected, self.value)
+    #[allow(unused_variables)] fn negated_msg(&self, expected: Vec<T>) -> String {
+        format!("Expected {} NOT to contain {} but it did.", stringify!(expected), stringify!(self.value))
     }
 
     fn get_file_line(&self) -> (&'static str, usize) {
@@ -26,7 +23,7 @@ impl <T: Show + PartialEq> Matcher<Vec<T>> for Contain<T> {
     }
 }
 
-pub fn contain<T: Show + PartialEq>(value: T, file_line: (&'static str, usize)) -> Box<Contain<T>> {
+pub fn contain<T: PartialEq>(value: T, file_line: (&'static str, usize)) -> Box<Contain<T>> {
     Box::new(Contain { value: value, file_line: file_line })
 }
 

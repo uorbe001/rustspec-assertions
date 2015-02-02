@@ -1,6 +1,3 @@
-extern crate core;
-
-use self::core::fmt::Show;
 use matchers::matcher::Matcher;
 
 pub struct Equals<T> {
@@ -8,17 +5,17 @@ pub struct Equals<T> {
     file_line: (&'static str, usize)
 }
 
-impl<T: PartialEq + Show> Matcher<T> for Equals<T> {
+impl<T: PartialEq> Matcher<T> for Equals<T> {
     fn assert_check(&self, expected: T) -> bool {
         expected == self.value
     }
 
-    fn msg(&self, expected: T) -> String {
-        format!("Expected {:?} to equal {:?} but it did not.", expected, self.value)
+    #[allow(unused_variables)] fn msg(&self, expected: T) -> String {
+        format!("Expected {} to equal {} but it did not.", stringify!(expected), stringify!(self.value))
     }
 
-    fn negated_msg(&self, expected: T) -> String {
-        format!("Expected {:?} NOT to equal {:?} but it did.", expected, self.value)
+    #[allow(unused_variables)] fn negated_msg(&self, expected: T) -> String {
+        format!("Expected {} NOT to equal {} but it did.", stringify!(expected), stringify!(self.value))
     }
 
     fn get_file_line(&self) -> (&'static str, usize) {
@@ -26,7 +23,7 @@ impl<T: PartialEq + Show> Matcher<T> for Equals<T> {
     }
 }
 
-pub fn eq<T: PartialEq + Show>(value: T, file_line: (&'static str, usize)) -> Box<Equals<T>> {
+pub fn eq<T: PartialEq>(value: T, file_line: (&'static str, usize)) -> Box<Equals<T>> {
     Box::new(Equals { value: value, file_line: file_line })
 }
 
