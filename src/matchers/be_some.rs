@@ -28,7 +28,7 @@ pub fn be_some(file_line: (&'static str, usize)) -> Box<BeSome> {
 }
 
 #[macro_export]
-pub macro_rules! be_some(
+macro_rules! be_some(
     () => (
         be_some((file!(), expand_line!()))
     );

@@ -28,7 +28,7 @@ pub fn be_false(file_line: (&'static str, usize)) -> Box<BeFalse> {
 }
 
 #[macro_export]
-pub macro_rules! be_false(
+macro_rules! be_false(
     () => (
         be_false((file!(), expand_line!()))
     );

@@ -9,12 +9,12 @@ fn be_none_test() {
 #[test]
 #[should_fail]
 fn be_none_test_fail() {
-    expect(&Some(1is)).to(be_none!());
+    expect(&Some(1isize)).to(be_none!());
 }
 
 #[test]
 fn not_be_none_test() {
-    expect(&Some(1is)).not_to(be_none!());
+    expect(&Some(1isize)).not_to(be_none!());
 }
 
 #[test]

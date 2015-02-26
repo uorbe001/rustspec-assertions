@@ -3,24 +3,24 @@ use self::rustspec_assertions::{expect, contain};
 
 #[test]
 fn contain_int_test() {
-    expect(&vec![2is, 1is]).to(contain!(1is));
-    expect(&vec![1is, 2is]).to(contain!(1is));
+    expect(&vec![2isize, 1isize]).to(contain!(1isize));
+    expect(&vec![1isize, 2isize]).to(contain!(1isize));
 }
 
 #[test]
 #[should_fail]
 fn contain_int_test_fail() {
-    expect(&vec![2is, 1is]).to(contain!(3is));
+    expect(&vec![2isize, 1isize]).to(contain!(3isize));
 }
 
 #[test]
 fn not_contain_int_test() {
-    expect(&vec![2is, 1is]).not_to(contain!(3is));
+    expect(&vec![2isize, 1isize]).not_to(contain!(3isize));
 }
 
 #[test]
 #[should_fail]
 fn not_contain_int_test_fail() {
-    expect(&vec![2is, 1is]).not_to(contain!(1is));
+    expect(&vec![2isize, 1isize]).not_to(contain!(1isize));
 }
 

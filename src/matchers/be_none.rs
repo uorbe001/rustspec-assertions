@@ -28,7 +28,7 @@ pub fn be_none(file_line: (&'static str, usize)) -> Box<BeNone> {
 }
 
 #[macro_export]
-pub macro_rules! be_none(
+macro_rules! be_none(
     () => (
         be_none((file!(), expand_line!()))
     );

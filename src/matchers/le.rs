@@ -28,7 +28,7 @@ pub fn be_le<T: PartialOrd>(value: T, file_line: (&'static str, usize)) -> Box<L
 }
 
 #[macro_export]
-pub macro_rules! be_le(
+macro_rules! be_le(
     ($value:expr) => (
         be_le($value.clone(), (file!(), expand_line!()))
     );

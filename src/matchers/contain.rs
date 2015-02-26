@@ -28,7 +28,7 @@ pub fn contain<T: PartialEq>(value: T, file_line: (&'static str, usize)) -> Box<
 }
 
 #[macro_export]
-pub macro_rules! contain(
+macro_rules! contain(
     ($value:expr) => (
         contain($value.clone(), (file!(), expand_line!()))
     );

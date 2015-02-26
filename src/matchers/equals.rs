@@ -28,7 +28,7 @@ pub fn eq<T: PartialEq>(value: T, file_line: (&'static str, usize)) -> Box<Equal
 }
 
 #[macro_export]
-pub macro_rules! eq(
+macro_rules! eq(
     ($value:expr) => (
         eq($value.clone(), (file!(), expand_line!()))
     );

@@ -28,7 +28,7 @@ pub fn be_true(file_line: (&'static str, usize)) -> Box<BeTrue> {
 }
 
 #[macro_export]
-pub macro_rules! be_true(
+macro_rules! be_true(
     () => (
         be_true((file!(), expand_line!()))
     );

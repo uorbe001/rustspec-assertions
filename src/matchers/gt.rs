@@ -28,7 +28,7 @@ pub fn be_gt<T: PartialOrd>(value: T, file_line: (&'static str, usize)) -> Box<G
 }
 
 #[macro_export]
-pub macro_rules! be_gt(
+macro_rules! be_gt(
     ($value:expr) => (
         be_gt($value.clone(), (file!(), expand_line!()))
     );

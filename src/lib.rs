@@ -52,9 +52,9 @@ pub use expect::expect;
 // }
 
 #[macro_export]
-pub macro_rules! expand_line(
+macro_rules! expand_line(
     () => (
-        line!()
+        line!() as usize
     );
 );
 

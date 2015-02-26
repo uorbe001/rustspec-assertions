@@ -3,24 +3,24 @@ use self::rustspec_assertions::{expect, eq};
 
 #[test]
 fn eq_int_test() {
-    expect(&2is).to(eq!(2is))
+    expect(&2isize).to(eq!(2isize))
 }
 
 #[test]
 #[should_fail]
 fn eq_int_test_fail() {
-    expect(&5is).to(eq!(4is));
+    expect(&5isize).to(eq!(4isize));
 }
 
 #[test]
 fn not_eq_int_test() {
-    expect(&2is).not_to(eq!(4is));
+    expect(&2isize).not_to(eq!(4isize));
 }
 
 #[test]
 #[should_fail]
 fn not_eq_int_test_fail() {
-    expect(&5is).not_to(eq!(5is));
+    expect(&5isize).not_to(eq!(5isize));
 }
 
 #[test]
@@ -30,6 +30,6 @@ fn eq_f64_test() {
 
 #[test]
 fn eq_usize_test() {
-    expect(&1us).to(eq!(1us));
+    expect(&1usize).to(eq!(1usize));
 }
 
