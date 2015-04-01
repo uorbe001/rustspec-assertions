@@ -12,7 +12,7 @@ fn be_ge_int_equal_test() {
 }
 
 #[test]
-#[should_fail]
+#[should_panic]
 fn be_ge_int_test_fail() {
     expect(&1isize).to(be_ge!(2isize));
 }
@@ -23,13 +23,13 @@ fn not_to_be_ge_int_test() {
 }
 
 #[test]
-#[should_fail]
+#[should_panic]
 fn not_to_be_ge_int_equal_test() {
     expect(&1isize).not_to(be_ge!(1isize));
 }
 
 #[test]
-#[should_fail]
+#[should_panic]
 fn not_to_be_ge_int_equal_test_fail() {
     expect(&2isize).not_to(be_ge!(1isize));
 }

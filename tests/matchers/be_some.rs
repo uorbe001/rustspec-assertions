@@ -7,7 +7,7 @@ fn be_some_test() {
 }
 
 #[test]
-#[should_fail]
+#[should_panic]
 fn be_some_test_fail() {
     expect(&None::<isize>).to(be_some!());
 }
@@ -18,7 +18,7 @@ fn not_be_some_test() {
 }
 
 #[test]
-#[should_fail]
+#[should_panic]
 fn not_be_some_test_fail() {
     expect(&Some(1isize)).not_to(be_some!());
 }

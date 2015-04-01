@@ -7,7 +7,7 @@ fn eq_int_test() {
 }
 
 #[test]
-#[should_fail]
+#[should_panic]
 fn eq_int_test_fail() {
     expect(&5isize).to(eq!(4isize));
 }
@@ -18,7 +18,7 @@ fn not_eq_int_test() {
 }
 
 #[test]
-#[should_fail]
+#[should_panic]
 fn not_eq_int_test_fail() {
     expect(&5isize).not_to(eq!(5isize));
 }

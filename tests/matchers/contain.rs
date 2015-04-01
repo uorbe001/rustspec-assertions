@@ -8,7 +8,7 @@ fn contain_int_test() {
 }
 
 #[test]
-#[should_fail]
+#[should_panic]
 fn contain_int_test_fail() {
     expect(&vec![2isize, 1isize]).to(contain!(3isize));
 }
@@ -19,7 +19,7 @@ fn not_contain_int_test() {
 }
 
 #[test]
-#[should_fail]
+#[should_panic]
 fn not_contain_int_test_fail() {
     expect(&vec![2isize, 1isize]).not_to(contain!(1isize));
 }

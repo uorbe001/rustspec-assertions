@@ -7,7 +7,7 @@ fn be_true_test() {
 }
 
 #[test]
-#[should_fail]
+#[should_panic]
 fn be_true_test_fail() {
     expect(&false).to(be_true!());
 }
@@ -18,7 +18,7 @@ fn not_be_true_test() {
 }
 
 #[test]
-#[should_fail]
+#[should_panic]
 fn not_be_true_test_fail() {
     expect(&true).not_to(be_true!());
 }
