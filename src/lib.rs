@@ -1,6 +1,6 @@
 #![crate_name="rustspec_assertions"]
 #![crate_type="dylib"]
-#![feature(plugin_registrar, rustc_private, std_misc)]
+#![feature(plugin_registrar, rustc_private)]
 
 extern crate syntax;
 extern crate rustc;

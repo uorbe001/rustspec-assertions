@@ -6,6 +6,8 @@ I find the errors rust's built-in assert! gives pretty limited, and I personally
 
 ## Usage
 
+You'll need to use rust's nightly builds, as the beta/stable builds don't support the syntax extensions yet.
+
 Add this as a dependency to your `Cargo.toml` and run `cargo build`:
 
 ```

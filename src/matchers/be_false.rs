@@ -1,6 +1,6 @@
 use matchers::matcher::Matcher;
 
-#[derive(Copy)]
+#[derive(Copy, Clone)]
 pub struct BeFalse {
     file_line: (&'static str, usize)
 }
