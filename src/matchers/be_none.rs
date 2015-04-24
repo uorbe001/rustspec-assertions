@@ -2,7 +2,7 @@ use matchers::matcher::Matcher;
 
 #[derive(Copy, Clone)]
 pub struct BeNone {
-    file_line: (&'static str, usize)
+    file_line: (&'static str, u32)
 }
 
 impl <T> Matcher<Option<T>> for BeNone {
@@ -18,12 +18,12 @@ impl <T> Matcher<Option<T>> for BeNone {
         format!("Expected {} NOT to be none but it was.", stringify!(expected))
     }
 
-    fn get_file_line(&self) -> (&'static str, usize) {
+    fn get_file_line(&self) -> (&'static str, u32) {
         self.file_line
     }
 }
 
-pub fn be_none(file_line: (&'static str, usize)) -> Box<BeNone> {
+pub fn be_none(file_line: (&'static str, u32)) -> Box<BeNone> {
     Box::new(BeNone { file_line: file_line })
 }
 

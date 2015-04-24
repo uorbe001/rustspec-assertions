@@ -2,7 +2,7 @@ use matchers::matcher::Matcher;
 
 #[derive(Copy, Clone)]
 pub struct BeFalse {
-    file_line: (&'static str, usize)
+    file_line: (&'static str, u32)
 }
 
 impl Matcher<bool> for BeFalse {
@@ -18,12 +18,12 @@ impl Matcher<bool> for BeFalse {
         format!("Expected {} NOT to be false but it was.", stringify!(expected))
     }
 
-    fn get_file_line(&self) -> (&'static str, usize) {
+    fn get_file_line(&self) -> (&'static str, u32) {
         self.file_line
     }
 }
 
-pub fn be_false(file_line: (&'static str, usize)) -> Box<BeFalse> {
+pub fn be_false(file_line: (&'static str, u32)) -> Box<BeFalse> {
     Box::new(BeFalse { file_line: file_line })
 }
 

@@ -54,7 +54,7 @@ pub use expect::expect;
 #[macro_export]
 macro_rules! expand_line(
     () => (
-        line!() as usize
+        line!() as u32
     );
 );
 

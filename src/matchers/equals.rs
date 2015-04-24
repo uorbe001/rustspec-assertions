@@ -2,7 +2,7 @@ use matchers::matcher::Matcher;
 
 pub struct Equals<T> {
     value: T,
-    file_line: (&'static str, usize)
+    file_line: (&'static str, u32)
 }
 
 impl<T: PartialEq> Matcher<T> for Equals<T> {
@@ -18,12 +18,12 @@ impl<T: PartialEq> Matcher<T> for Equals<T> {
         format!("Expected {} NOT to equal {} but it did.", stringify!(expected), stringify!(self.value))
     }
 
-    fn get_file_line(&self) -> (&'static str, usize) {
+    fn get_file_line(&self) -> (&'static str, u32) {
         self.file_line
     }
 }
 
-pub fn eq<T: PartialEq>(value: T, file_line: (&'static str, usize)) -> Box<Equals<T>> {
+pub fn eq<T: PartialEq>(value: T, file_line: (&'static str, u32)) -> Box<Equals<T>> {
     Box::new(Equals { value: value, file_line: file_line })
 }
 

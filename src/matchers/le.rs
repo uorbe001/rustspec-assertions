@@ -2,7 +2,7 @@ use matchers::matcher::Matcher;
 
 pub struct Le<T> {
     value: T,
-    file_line: (&'static str, usize)
+    file_line: (&'static str, u32)
 }
 
 impl<T: PartialOrd> Matcher<T> for Le<T> {
@@ -18,12 +18,12 @@ impl<T: PartialOrd> Matcher<T> for Le<T> {
         format!("Expected {} NOT to be less or equal to {} but it was.", stringify!(expected), stringify!(self.value))
     }
 
-    fn get_file_line(&self) -> (&'static str, usize) {
+    fn get_file_line(&self) -> (&'static str, u32) {
         self.file_line
     }
 }
 
-pub fn be_le<T: PartialOrd>(value: T, file_line: (&'static str, usize)) -> Box<Le<T>> {
+pub fn be_le<T: PartialOrd>(value: T, file_line: (&'static str, u32)) -> Box<Le<T>> {
     Box::new(Le { value: value, file_line: file_line })
 }
 
